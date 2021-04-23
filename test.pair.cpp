@@ -20,14 +20,14 @@ public:
         first = copied.first;
         second = copied.second;
     }
-    int Min (Pair a, Pair b){
+    bool Min (Pair a, Pair b){
         if (a.first < b.first){
-            return a;
+            return true;
         }
         else if (a.first == b.first && a.second < b.second){
-            return a;
+            return true;
         }
-        return b;
+        return false;
     }
 };
 
