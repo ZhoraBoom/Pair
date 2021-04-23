@@ -36,7 +36,7 @@ void mySort(vector<T>& a) {
     T j;
     for (int i = 0; i < a.size() - 1; ++i){
         for (int k = 1; k < a.size(); ++k){
-            if (Min(a[k - 1], a[k]) == a[k]){
+            if (Min(a[k - 1], a[k]) == false){
                 j = a[k - 1];
                 a[k - 1] = a[k];
                 a[k] = j;
