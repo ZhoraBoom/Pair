@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -16,18 +14,18 @@ public:
         first = copied.first;
         second = copied.second;
     }
-    Pair (const Pair& copied){
-        first = copied.first;
-        second = copied.second;
-    }
-    bool Min (Pair a, Pair b){
-        if (a.first < b.first){
+    bool operator< (const Pair& other){
+        if (first < other.first){
             return true;
         }
-        else if (a.first == b.first && a.second < b.second){
+        else if (first == other.first && second < other.second){
             return true;
         }
         return false;
+    }
+    Pair (const Pair& copied){
+        first = copied.first;
+        second = copied.second;
     }
 };
 
@@ -36,7 +34,7 @@ void mySort(vector<T>& a) {
     T j;
     for (int i = 0; i < a.size() - 1; ++i){
         for (int k = 1; k < a.size(); ++k){
-            if (Min(a[k - 1], a[k]) == false){
+            if (a[k] < a[k - 1]){
                 j = a[k - 1];
                 a[k - 1] = a[k];
                 a[k] = j;
