@@ -12,10 +12,6 @@ public:
     Pair(){
 
     }
-    make_Pair (const T1 a, const T2 b){
-        first = a;
-        second = b;
-    }
     Pair& operator= (const Pair& copied){
         first = copied.first;
         second = copied.second;
@@ -24,7 +20,7 @@ public:
         first = copied.first;
         second = copied.second;
     }
-    void Min (Pair a, Pair b){
+    int Min (Pair a, Pair b){
         if (a.first < b.first){
             return a;
         }
@@ -37,7 +33,7 @@ public:
 
 template<typename T>
 void mySort(vector<T>& a) {
-    Pair j;
+    T j;
     for (int i = 0; i < a.size() - 1; ++i){
         for (int k = 1; k < a.size(); ++k){
             if (Min(a[k - 1], a[k]) == a[k]){
@@ -47,6 +43,13 @@ void mySort(vector<T>& a) {
             }
         }
     }
+}
+template < typename T1, typename T2, typename T>
+int make_pair (const T1 a, const T2 b){
+    T Pair;
+    Pair.first = a;
+    Pair.second = b;
+    return Pair;
 }
 
 int main() {
