@@ -24,6 +24,15 @@ public:
         }
         return false;
     }
+    bool operator< (const Pair& other){
+        if (first < other.first){
+            return true;
+        }
+        else if (first == other.first && second < other.second){
+            return true;
+        }
+        return false;
+    }
     Pair (const Pair& copied){
         first = copied.first;
         second = copied.second;
