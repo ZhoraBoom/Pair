@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -12,41 +10,45 @@ public:
     Pair(){
 
     }
-    make_Pair (const T1 a, const T2 b){
-        first = a;
-        second = b;
-    }
     Pair& operator= (const Pair& copied){
         first = copied.first;
         second = copied.second;
+        return *this;
+    }
+    bool operator< (const Pair& other){
+        if (first < other.first){
+            return true;
+        }
+        else if (first == other.first && second < other.second){
+            return true;
+        }
+        return false;
     }
     Pair (const Pair& copied){
         first = copied.first;
         second = copied.second;
     }
-    void Min (Pair a, Pair b){
-        if (a.first < b.first){
-            return a;
-        }
-        else if (a.first == b.first && a.second < b.second){
-            return a;
-        }
-        return b;
-    }
 };
 
 template<typename T>
 void mySort(vector<T>& a) {
-    Pair j;
+    T j;
     for (int i = 0; i < a.size() - 1; ++i){
         for (int k = 1; k < a.size(); ++k){
-            if (Min(a[k - 1], a[k]) == a[k]){
+            if (a[k] < a[k - 1]){
                 j = a[k - 1];
                 a[k - 1] = a[k];
                 a[k] = j;
             }
         }
     }
+}
+template < typename T1, typename T2, typename T>
+int make_pair (const T1 a, const T2 b){
+    T Pair;
+    Pair.first = a;
+    Pair.second = b;
+    return Pair;
 }
 
 int main() {
